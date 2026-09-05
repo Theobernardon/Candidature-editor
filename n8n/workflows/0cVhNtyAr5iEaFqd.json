@@ -1,0 +1,156 @@
+{
+  "updatedAt": "2026-09-02T10:44:18.543Z",
+  "createdAt": "2026-08-20T11:01:54.652Z",
+  "id": "0cVhNtyAr5iEaFqd",
+  "name": "Convert html to pdf",
+  "description": null,
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://pdf-converter:8000/convert",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "filename",
+              "value": "={{ $json['Chemin complet du fichier'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        400,
+        -144
+      ],
+      "id": "76a019f4-4177-4e98-b7fb-6d72f4cc9247",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "formTitle": "Convertir un HTML en PDF",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Chemin complet du fichier"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        0,
+        -144
+      ],
+      "id": "ee585ddf-6cdf-4a1c-93d4-b305a2fb68cd",
+      "name": "On form submission",
+      "webhookId": "28204167-f144-42f5-a766-194589ba914d"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a74803e5-502a-4cde-bbee-3560f3cdfe02",
+              "name": "Chemin complet du fichier",
+              "value": "={{ $json['Chemin complet du fichier'].split(/\\\"|.*1-n8n-Assistant/).join(\"\").split(\"\\\\\").join(\"/\").split(/^\\//).join(\"\") }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        208,
+        -144
+      ],
+      "id": "003cbe7d-46c3-4854-b7bf-e904329e6bbc",
+      "name": "Edit Fields"
+    }
+  ],
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": null,
+  "nodeGroups": [],
+  "pinData": {},
+  "versionId": "7cc6b449-1cac-4984-add7-c14b4a5ed4be",
+  "activeVersionId": null,
+  "versionCounter": 120,
+  "triggerCount": 1,
+  "sourceWorkflowId": null,
+  "tags": [
+    {
+      "updatedAt": "2026-09-02T10:44:12.876Z",
+      "createdAt": "2026-09-02T10:44:12.876Z",
+      "id": "nqKGeO8M0i93RAwa",
+      "name": "formulaire"
+    },
+    {
+      "updatedAt": "2026-09-02T10:44:06.307Z",
+      "createdAt": "2026-09-02T10:44:06.307Z",
+      "id": "y9iYUxNugTKHYNS5",
+      "name": "outil"
+    }
+  ],
+  "shared": [
+    {
+      "updatedAt": "2026-09-03T20:56:56.709Z",
+      "createdAt": "2026-09-03T20:56:56.709Z",
+      "role": "workflow:owner",
+      "workflowId": "0cVhNtyAr5iEaFqd",
+      "projectId": "XjJjYNQ7vT8Pd6Tx",
+      "project": {
+        "updatedAt": "2026-09-03T20:57:23.685Z",
+        "createdAt": "2026-09-03T20:56:54.423Z",
+        "id": "XjJjYNQ7vT8Pd6Tx",
+        "name": "Théo Bernardon <bernardon.job@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "customTelemetryTags": [],
+        "creatorId": "c8ea7bb4-e055-4b91-af60-dfd3de0051be"
+      }
+    }
+  ],
+  "versionMetadata": {
+    "name": "Version 57db7a7a",
+    "description": "HTML Convert to PDF"
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "updatedAt": "2026-09-05T08:54:57.785Z",
+  "createdAt": "2026-09-03T20:56:56.768Z",
+  "id": "e7dZkTu7iZ9kdYBj",
+  "name": "Création des tables",
+  "description": null,
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        480
+      ],
+      "id": "4eb3ed1d-aeea-4c6d-b8a6-00df06b51f89",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "operation": "create",
+        "tableName": "memory_jobs",
+        "columns": {
+          "column": [
+            {
+              "name": "job_title"
+            },
+            {
+              "name": "employer_name"
+            },
+            {
+              "name": "job_publisher"
+            },
+            {
+              "name": "job_employment_type"
+            },
+            {
+              "name": "job_apply_link"
+            },
+            {
+              "name": "job_description"
+            },
+            {
+              "name": "job_is_remote"
+            },
+            {
+              "name": "job_location"
+            },
+            {
+              "name": "job_city"
+            },
+            {
+              "name": "job_latitude"
+            },
+            {
+              "name": "job_longitude"
+            },
+            {
+              "name": "job_uid"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        48
+      ],
+      "id": "0b3ed5c5-1b50-41ac-b302-a8ad2e9b4686",
+      "name": "memory_jobs"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "operation": "create",
+        "tableName": "Infos CV",
+        "columns": {
+          "column": [
+            {
+              "name": "Nom"
+            },
+            {
+              "name": "Prenom"
+            },
+            {
+              "name": "Adresse"
+            },
+            {
+              "name": "Code_Postal"
+            },
+            {
+              "name": "Ville"
+            },
+            {
+              "name": "Telephone"
+            },
+            {
+              "name": "Email"
+            },
+            {
+              "name": "date_de_naissance"
+            },
+            {
+              "name": "Resume"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        192
+      ],
+      "id": "724fdee5-e868-4869-b20f-773bb493fe82",
+      "name": "Infos CV"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "operation": "create",
+        "tableName": "Postes recherchee",
+        "columns": {
+          "column": [
+            {
+              "name": "query"
+            },
+            {
+              "name": "date_posted"
+            },
+            {
+              "name": "country"
+            },
+            {
+              "name": "location"
+            },
+            {
+              "name": "radius"
+            },
+            {
+              "name": "exclude_job_publishers"
+            },
+            {
+              "name": "work_from_home",
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        928
+      ],
+      "id": "ab0a92e5-04df-47a2-b773-0e9e29f48307",
+      "name": "Postes recherchee"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "operation": "create",
+        "tableName": "Formations",
+        "columns": {
+          "column": [
+            {
+              "name": "Diplome"
+            },
+            {
+              "name": "Etablissement"
+            },
+            {
+              "name": "Annee"
+            },
+            {
+              "name": "description"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        336
+      ],
+      "id": "24ffbac8-d76e-47e1-ab5d-62c59d30f589",
+      "name": "Formations"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "operation": "create",
+        "tableName": "Intitulées de postes",
+        "columns": {
+          "column": [
+            {
+              "name": "postes"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        784
+      ],
+      "id": "9bf8a1f3-88e9-4145-8555-051d78baa718",
+      "name": "Intitulées de postes"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "operation": "create",
+        "tableName": "Compétences",
+        "columns": {
+          "column": [
+            {
+              "name": "skill"
+            },
+            {
+              "name": "is_hard",
+              "type": "boolean"
+            },
+            {
+              "name": "is_soft",
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        480
+      ],
+      "id": "b2885cb5-3821-46a3-b174-2296ce0b99b4",
+      "name": "Compétences"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "operation": "create",
+        "tableName": "Experiance professionnelle",
+        "columns": {
+          "column": [
+            {
+              "name": "Job"
+            },
+            {
+              "name": "Entreprise"
+            },
+            {
+              "name": "debut",
+              "type": "date"
+            },
+            {
+              "name": "fin",
+              "type": "date"
+            },
+            {
+              "name": "describe"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        624
+      ],
+      "id": "258138e3-77fd-4684-9b48-17623c6160be",
+      "name": "Experiance professionnelle"
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "memory_jobs",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Infos CV",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Formations",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Compétences",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Experiance professionnelle",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Intitulées de postes",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Postes recherchee",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": {
+    "instanceId": "2ef59913481202150c4f3c517fbaa102e46ffaf7be6eaeecdd1f1ea90d196f8a"
+  },
+  "nodeGroups": [],
+  "pinData": {},
+  "versionId": "088cdb1c-0182-493a-ab36-df1bf0c524ef",
+  "activeVersionId": null,
+  "versionCounter": 8,
+  "triggerCount": 0,
+  "sourceWorkflowId": null,
+  "tags": [],
+  "shared": [
+    {
+      "updatedAt": "2026-09-03T20:56:56.768Z",
+      "createdAt": "2026-09-03T20:56:56.768Z",
+      "role": "workflow:owner",
+      "workflowId": "e7dZkTu7iZ9kdYBj",
+      "projectId": "XjJjYNQ7vT8Pd6Tx",
+      "project": {
+        "updatedAt": "2026-09-03T20:57:23.685Z",
+        "createdAt": "2026-09-03T20:56:54.423Z",
+        "id": "XjJjYNQ7vT8Pd6Tx",
+        "name": "Théo Bernardon <bernardon.job@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "customTelemetryTags": [],
+        "creatorId": "c8ea7bb4-e055-4b91-af60-dfd3de0051be"
+      }
+    }
+  ],
+  "versionMetadata": {
+    "name": null,
+    "description": null
+  }
+}

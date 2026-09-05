@@ -1,0 +1,1993 @@
+{
+  "updatedAt": "2026-09-05T08:29:12.014Z",
+  "createdAt": "2026-07-29T06:33:21.020Z",
+  "id": "JivNpCgAEBoKFBYZ",
+  "name": "Générer lettre et lien",
+  "description": null,
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "jsonExample",
+        "jsonExample": "{\n  \"job_id\": \"VVNmNWlmRjRXckEwU05FakFBQUFBQT09OkVzd0JDb3dCUVVwcFZEUjBTV3g1ZUhRM2FUWkliMTlWY1Zoak9HaFBRa1Z6UW1KRmJua3pkV2Q0YXpCRVlsUlFXVGxuVm5WdE1UVmFTMG95VFhOMVIxbEdlVVJXUnpSNVIwVlNlRlJ2U0hoQ1kxWnVUbmd4VWpkeVZrMHhUMWxUUjNSa2RFcHVYMXBsVFdwTlRGOVZkMVpmVW5SR01YazNiMVYzYTJaQk1URmFaVkI2ZW5wbVNWTmhUMk5RTkVkdFluWVNGMlZqWkc5aGIzSmxSVFJYWDJ0UVNWQTBUa2hVTWxGWkdpSkJSSE55T1daVGRtbDZaR3hwYnpZMFRXWnJVbEpuWkRCT1VWRkdNWGxxUTNkUg\",\n  \"job_title\": \"Junior Data Scientist - Casablanca\",\n  \"employer_name\": \"Artefact\",\n  \"employer_website\": \"https://www.artefact.com\",\n  \"job_publisher\": \"Welcome To The Jungle\",\n  \"job_employment_type\": \"À plein temps\",\n  \"job_apply_link\": \"https://www.welcometothejungle.com/en/companies/artefact/jobs/junior-data-scientist-casablanca_paris\",\n  \"job_apply_is_direct\": false,\n  \"job_description\": \"Who we are\\nArtefact is a new generation of a data service provider, specialising in data consulting and data-driven digital marketing, dedicated to transforming data into business impact across the entire value chain of organisations. We are proud to say we’re enjoying skyrocketing growth.\\nOur broad range of data-driven solutions in data consulting and digital marketing are designed to meet our clients’ specific needs, always conceived with a business-centric approach and delivered with tangible results. Our data-driven services are built upon the deep AI expertise we’ve acquired with our 1000+ client base around the globe.\\nWe have 1000 employees across 20 offices who are focused on accelerating digital transformation. Thanks to a unique mix of company assets: State of the art data technologies, lean AI agile methodologies for fast delivery, and cohesive teams of the finest business consultants, data analysts, data scientists, data engineers, and digital experts, all dedicated to bringing extra value to every client.\\nWhat you will be doing: Key responsibilities\\nAs a Junior Data Scientist, your role will encompass:\\n• Leading and conducting ambitious projects in the transformation of clients through data\\n• Having a contributor role in raising the level of competencies of the data science team\\n• Harnessing the expertise from the other Divisions (Activation, Creativity, and Strategy) to provide comprehensive services to your clients\\n• Developing privileged relationships with our clients, using your technical abilities to assist in the transformation of their marketing department\\n• You’ll also participate in international projects. Business travel is something you enjoy!\\nAmong your responsibilities as Senior Data Scientist, you will be responsible for:\\nLeading data projects\\n• Managing the resources on your projects to ensure challenges and skills are well match\\n• Securing delivery on your projects\\n• Communicating the successes of your projects among the company\\n• Working closely with your Consulting counterpart to build and maintain strong relationships with your clients and best understand their needs\\n• Caring for the happiness of the team, ensuring work is delivered to a high standard and providing feedback and mentoring\\nBeing a great tech role model\\n• Demonstrating the skill and credibility required to ensure the success of our clients’ initiatives\\n• Researching and developing new technical approaches to address problems efficiently\\n• Sharing best practices and contributing to Artefact’s institutional knowledge\\n• Embodying Artefact’s values and inspiring others to do the same\\nQualifications: Education & experience required\\n\\n• A Master’s degree in machine learning, mathematics, computer science, or related fields\\n• 2+ years of hands-on experience developing and applying data-driven solutions in a corporate or consulting setting, preferably in a consumer marketing context (experience in the web industry is a plus)\\n• Strong experience and knowledge of data processing, data modeling, algorithms, and data architecture\\n• Experience leading a technical project in a business context\\n• Intellectual curiosity and excellent problem-solving skills, including the ability to structure and prioritise an approach for maximum impact\\nWhat we are looking for\\n• A Doer: you get things done and inspire your teams to do the same\\n• An Analyst: you LOVE data and think every company should take their decisions with facts\\n• A Pragmatist: you have a hacker mindset and always find the quick wins\\n• A Mentor: your clients and teams naturally seek for advice\\n• An Adventurer: you’re an entrepreneur constantly looking for problems to solve\\nWhy you should join us\\n• Artefact is the place to be: come and build the future of marketing\\n• Progress: every day offers new challenges and new opportunities to learn\\n• Culture: join the best team you could ever imagine\\n• Entrepreneurship: you will be joining a team of driven entrepreneurs. We won’t give up until we make a huge dent in this industry!\",\n  \"job_is_remote\": false,\n  \"job_location\": \"Paris\",\n  \"job_city\": \"Paris\",\n  \"job_country\": \"FR\",\n  \"job_latitude\": 48.857547499999995,\n  \"job_longitude\": 2.3513764999999998,\n  \"job_uid\": \"USf5ifF4WrA0SNEjAAAAAA==\"\n}"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -352,
+        1024
+      ],
+      "id": "06942929-4b18-4c3c-a877-5d90a33813b7",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $('set link file').item.json.chemin }}Postuler.url",
+        "options": {
+          "append": false
+        }
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1.1,
+      "position": [
+        2352,
+        736
+      ],
+      "id": "80458934-67f4-4da4-8c51-c9dd1abac52f",
+      "name": "Write racourci postuler"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "job_apply_link",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1872,
+        736
+      ],
+      "id": "167f830b-fb87-4314-ad3d-0e755a86e1a4",
+      "name": "to .url"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bf090795-0ac4-4e88-b20d-6019d19f7faa",
+              "name": "job_apply_link",
+              "value": "=[InternetShortcut]\nIDList=\nURL={{ $json.job_apply_link }}",
+              "type": "string"
+            },
+            {
+              "id": "1f340a51-078e-4d01-a510-ecfcff2a82d0",
+              "name": "chemin",
+              "value": "={{ $json.chemin }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        784,
+        736
+      ],
+      "id": "e98c8452-0116-4fa3-9784-d0fed1b5d79d",
+      "name": "set link file"
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "numberInputs": 4,
+        "useDataOfInput": 4
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        4784,
+        960
+      ],
+      "id": "ce9f0555-0ac1-431b-8207-588a35dfec8a",
+      "name": "Return input"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1248,
+        -32
+      ],
+      "id": "0c6cdb97-62fe-463d-86dc-fbd39acb17a9",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Tu es un assistant spécialisé dans la rédaction de lettres de motivation **strictement basées sur des faits**.\n**Règles absolues à respecter :**\n1. **Ne jamais inventer** d'informations : utilise **uniquement** le contenu du **profil (CV)** et de l'**offre d'emploi**.\n2. **Ton** : Professionnel, neutre, **sans superlatifs** (ex: évite \"excellente expérience\", \"parfaitement qualifié\", \"exceptionnel\").\n3. **Structure** :\n   - **adressage** : \"À l'attention du service des ressources humaines de [nom de l'entreprise]\" **OU** \"À l'attention des recruteurs de [nom de l'entreprise]\" (selon ce qui est le plus adapté).\n   - **corps** : Commence par \"Madame, Monsieur,\\n\\n\" et termine par \"Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.\".\n\n**Données à utiliser :**\n- Entreprise : {{ $json.employer_name }}\n- Offre : {{ $json.job_description }}\n- Profil : {{ $json.CV }}\n\n**Sortie attendue (JSON) :**\n{\n  \"adressage\": \"[texte ici]\",\n  \"corps\": \"[texte ici]\"\n}",
+        "hasOutputParser": true,
+        "needsFallback": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1632,
+        48
+      ],
+      "id": "6fc2e23b-fb97-4686-bb1c-259b89c6cfde",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1488,
+        48
+      ],
+      "id": "b7b13fb9-6e8c-488f-81f8-c767d32891e3",
+      "name": "Wait",
+      "webhookId": "4aad57ef-cad3-4023-9248-901a17251697"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "74edf4a4-945d-4c79-a2b3-312332a561e8",
+              "name": "job_title",
+              "value": "={{ $json.job_title.replaceAll('/', '').replaceAll('\\\\', '') }}",
+              "type": "string"
+            },
+            {
+              "id": "762e14ee-f59a-49d9-9b2c-fba2e88fc586",
+              "name": "employer_name",
+              "value": "={{ $json.employer_name.replaceAll('/', '').replaceAll('\\\\', '') }}",
+              "type": "string"
+            },
+            {
+              "id": "952b0f0a-4382-4210-a339-673892fd9487",
+              "name": "job_description",
+              "value": "={{ $json.job_description }}",
+              "type": "string"
+            },
+            {
+              "id": "7005f799-5dba-474f-8805-90cdddd45c44",
+              "name": "chemin",
+              "value": "={{ $json.chemin }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        784,
+        -16
+      ],
+      "id": "7bec5649-ca5f-4ff0-80b5-e560d62a9abe",
+      "name": "keep job synthèse"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "RikYRrHLBSVzc2Cq",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/RikYRrHLBSVzc2Cq",
+          "cachedResultName": "Full CV texte Editor"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1056,
+        -256
+      ],
+      "name": "Call Full CV texte Editor",
+      "id": "02bec597-69b9-476f-8fe6-0811ee76720f"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "de3b6057-e1de-451e-b478-12ed9931dedd",
+              "name": "employer_name",
+              "value": "={{ $json.employer_name }}",
+              "type": "string"
+            },
+            {
+              "id": "c56821be-9a66-49d4-bacb-ca6e8f10e868",
+              "name": "job_title",
+              "value": "={{ $json.job_title }}",
+              "type": "string"
+            },
+            {
+              "id": "d2c49876-fd88-402b-870b-c444bde9a62a",
+              "name": "job_description",
+              "value": "={{ $json.job_description }}",
+              "type": "string"
+            },
+            {
+              "id": "98aeaffb-461e-4b2a-ab17-0dbee0486f00",
+              "name": "chemin",
+              "value": "={{ $json.chemin }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        -1232
+      ],
+      "id": "7bba964a-eac8-45f4-a72d-ee397e655726",
+      "name": "keep job synthèse1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1216,
+        -1232
+      ],
+      "id": "67903682-2614-4f76-bd7b-99da76b138ec",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Tu as accès aux tables de mes compétences, de mes expériences professionnelles et des postes auxquels je peux postuler.\nLis les tables, puis :\nSélectionne l'intitulé de poste qui correspond le mieux, de 3 à 4 expériences pros, 14 hard skills, et 6 soft skills pour qu'elles correspondent au mieux à l'offre de job suivante (classe-les dans l'ordre d'importance décroissante) :\n{{ $json.job_title }} ({{ $json.employer_name }})\n{{ $json.job_description }}\n\nDonne-moi uniquement la liste des id(int) des items classés.",
+        "hasOutputParser": true,
+        "needsFallback": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1552,
+        -992
+      ],
+      "id": "345c139a-1887-42c5-b2c7-fa90e06db414",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "description": "Get expériances rows",
+        "workflowId": {
+          "__rl": true,
+          "value": "ag5a1nzvgpaGQMvV",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/ag5a1nzvgpaGQMvV",
+          "cachedResultName": "Get expériances rows"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Get table": false
+          },
+          "matchingColumns": [
+            "Get table"
+          ],
+          "schema": [
+            {
+              "id": "Get table",
+              "displayName": "Get table",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "boolean",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        1536,
+        -800
+      ],
+      "id": "5b7510d5-ba50-49bb-bf6b-fa0ce5674f23",
+      "name": "Get expériances rows"
+    },
+    {
+      "parameters": {
+        "description": "Get skills rows",
+        "workflowId": {
+          "__rl": true,
+          "value": "M00HQvdq8ymJxHXa",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/M00HQvdq8ymJxHXa",
+          "cachedResultName": "Get skills rows"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Get table": false
+          },
+          "matchingColumns": [
+            "Get table"
+          ],
+          "schema": [
+            {
+              "id": "Get table",
+              "displayName": "Get table",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "boolean"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        1664,
+        -800
+      ],
+      "id": "d8ac465f-0888-4074-b348-82b0ba833f5b",
+      "name": "Get skills rows"
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1392,
+        -992
+      ],
+      "id": "2433f758-020a-4e0f-922c-c128046acf2a",
+      "name": "Wait1",
+      "webhookId": "4275e20c-281c-4065-ace0-dbd6ce7fa1c3"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "Html CV",
+        "binaryPropertyName": "Html CV",
+        "options": {
+          "encoding": "utf8",
+          "fileName": "CV.html"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2560,
+        -1392
+      ],
+      "id": "989312e5-5e44-4239-aa25-329f50710f23",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $('edit html with all elements').item.json.chemin }}CV.html",
+        "dataPropertyName": "Html CV",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1.1,
+      "position": [
+        2960,
+        -1392
+      ],
+      "id": "c0c8bd31-670b-470c-8328-1406fba87a6a",
+      "name": "Write Html CV"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "07c1e5e8-e35c-4220-b724-eb084904a170",
+              "name": "=chemin",
+              "value": "=/home/taf/{{ $today.format('yyyy-MM-dd') }}/{{ $json.employer_name.replaceAll('/', '').replaceAll('\\\\', '')  }} - {{ $json.job_title.replaceAll('/', '').replaceAll('\\\\', '') }}/",
+              "type": "string"
+            },
+            {
+              "id": "d933a699-f1b4-43e9-81c6-45eebb2fab22",
+              "name": "employer_name",
+              "value": "={{ $json.employer_name }}",
+              "type": "string"
+            },
+            {
+              "id": "525ca0a3-0270-4e88-bebd-a3286821b5ab",
+              "name": "job_title",
+              "value": "={{ $json.job_title }}",
+              "type": "string"
+            },
+            {
+              "id": "d0e72387-cf3c-4995-b060-f4d721a99173",
+              "name": "job_description",
+              "value": "={{ $json.job_description }}",
+              "type": "string"
+            },
+            {
+              "id": "6e07d559-5fec-4b4e-bf74-aad2a3daa48f",
+              "name": "job_apply_link",
+              "value": "={{ $json.job_apply_link }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        48,
+        720
+      ],
+      "id": "f7eafcbf-7485-4fda-978f-476b975fde8b",
+      "name": "edit chemin"
+    },
+    {
+      "parameters": {
+        "description": "Get post rows",
+        "workflowId": {
+          "__rl": true,
+          "value": "U7kJa25opKF9sU3c",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/U7kJa25opKF9sU3c",
+          "cachedResultName": "Get posts rows"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Get table": false
+          },
+          "matchingColumns": [
+            "Get table"
+          ],
+          "schema": [
+            {
+              "id": "Get table",
+              "displayName": "Get table",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "boolean",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        1792,
+        -800
+      ],
+      "id": "e8581f32-7c37-4940-9973-17fb3b1fdff0",
+      "name": "Get posts rows"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "DxBABB3a86Yjea8Y",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/DxBABB3a86Yjea8Y",
+          "cachedResultName": "Edit cv field form listes itemes"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "output": "={{ $json.output }}"
+          },
+          "matchingColumns": [
+            "output"
+          ],
+          "schema": [
+            {
+              "id": "output",
+              "displayName": "output",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2160,
+        -992
+      ],
+      "name": "Call édit cv field form listes itemes",
+      "id": "f6dcbdd5-ff14-453f-b1a5-cf2038b39496"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n    \"output\": {\n      \"post\": 4,\n      \"expériances\": [\n        3,\n        2,\n        6,\n        1\n      ],\n      \"hard_skills\": [\n        4,\n        1,\n        11,\n        7,\n        12,\n        3,\n        2,\n        13,\n        14,\n        10,\n        15,\n        16,\n        17,\n        18\n      ],\n      \"soft_skills\": [\n        18,\n        17,\n        15,\n        20,\n        19,\n        16\n      ]\n    }\n  }"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1936,
+        -800
+      ],
+      "id": "a3d99885-040e-453e-b87e-53997759fdd1",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"adressage\": \" À l'attention du service de recrutement.\",\n\t\"corps\": \"Madame, Monsieur,\\n\\nVotre offre pour un poste d’ingénieur en data engineering au sein de votre startup innovante dans la lutte contre le cancer a retenu toute mon attention. Fort de mon expérience en data engineering et en pipelines de données, ainsi que de ma curiosité pour les enjeux technologiques et médicaux, je souhaite mettre mes compétences au service de votre équipe pour contribuer à la conception et à la structuration de votre plateforme data.\\n\\nMon parcours m’a permis de développer une expertise solide en orchestration de pipelines robustes et en traitement de données à grande échelle. Lors de mes projets en machine learning et en data science, j’ai conçu et déployé des pipelines automatisés sur des environnements distribués comme AWS, en garantissant leur scalabilité et leur fiabilité. Par exemple, j’ai mis en place des workflows d’édition automatique de tags via des modèles NLP et optimisé des processus de pré-traitement pour des applications en production.\\n\\nVotre projet, qui combine innovation technologique et impact médical, correspond parfaitement à ma motivation pour travailler sur des données à forte valeur ajoutée. Mon aisance avec les environnements dynamiques, comme en témoigne mon projet personnel en automatisation avec n8n et Docker, ainsi que ma capacité à collaborer en cross-team, me permettent d’envisager avec enthousiasme ce rôle au cœur de votre stratégie.\\n\\nJe serais ravi d’échanger avec vous sur la manière dont mon profil pourrait s’intégrer à vos ambitions et contribuer à vos défis techniques et éthiques.\\n\\nJe vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1888,
+        208
+      ],
+      "id": "f487a1ec-e215-4214-9a34-f5c9e3e73cc2",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "Infos CV",
+          "mode": "name"
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        1184,
+        -1440
+      ],
+      "id": "c8d428f8-fd58-40ca-984d-ebc3c1179ccd",
+      "name": "Infos CV"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "Formations",
+          "mode": "name"
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        1184,
+        -1584
+      ],
+      "id": "d2360014-9495-4669-aa1e-86cab96945f4",
+      "name": "Formations"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1d715551-9cf2-4c5b-a3e2-896e82a9b2ec",
+              "name": "Diplome",
+              "value": "=        <div class=\"edu-item\">\n          <div class=\"edu-header\">{{ $json.Diplome }} <span class=\"school\">• {{ $json.Etablissement }} • {{ $json.Annee }}</span></div>\n          <ul class=\"bullets\">\n            <li>{{ $json.description.split('\\n').join(\"</li>\\n            <li>\") }}</li>\n          </ul>\n        </div>",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1360,
+        -1584
+      ],
+      "id": "a36680d8-076b-4644-a45a-4a42916f6839",
+      "name": "To formation block html"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "Diplomes",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1536,
+        -1584
+      ],
+      "id": "27225a4e-7f05-4cff-8ef7-1ca7d734d0d9",
+      "name": "Formations in \"Diplomes\" column"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1728,
+        -1456
+      ],
+      "id": "80f57908-732d-4c60-9ab0-822aa570f95a",
+      "name": "infos CV + Diplomes"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1968,
+        -1392
+      ],
+      "id": "111be72e-3cd7-4de0-b56f-7e9991f6b79d",
+      "name": "infos CV + Diplomes + experiances + skills"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1952ec31-cc94-408d-b42f-1154dd3f6ead",
+              "name": "Html CV",
+              "value": "=<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>CV</title>\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link href=\"https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap\" rel=\"stylesheet\">\n<link rel=\"stylesheet\" href=\"../../CV_HTML/style.css\">\n</head>\n<body>\n  <div class=\"page\">\n\n    <!-- ============ COLONNE PRINCIPALE ============ -->\n    <main class=\"main\">\n\n      <div class=\"header\">\n        <p class=\"job-title\">{{ $json.postes.join(' / ') }}</p>\n        <h1 class=\"name\">{{ $json.Prenom }}<br>{{ $json.Nom }}</h1>\n      </div>\n\n      <section class=\"summary\">\n        <h2 class=\"section-title\">SYNTHÈSE PROFESSIONNELLE</h2>\n        <p>\n          {{ $json.Resume }}\n        </p>\n      </section>\n\n      <section class=\"experience\">\n        <h2 class=\"section-title\">EXPERIENCE PROFESSIONNELLE</h2>\n{{ $json['Expériences'].join('\\n') }}\n      </section>\n\n      <section class=\"formation\">\n        <h2 class=\"section-title\">FORMATION</h2>\n          {{ $json.Diplomes.map(item => item.Diplome).join('\\n\\n') }}\n      </section>\n\n       </main>\n\n    <!-- ============ COLONNE LATÉRALE ============ -->\n    <aside class=\"sidebar\">\n\n      <div class=\"photo-wrap\">\n        <img class=\"photo\" src=\"../../CV_HTML/asset/photo_pro.jpg\" alt=\"Photo\">\n      </div>\n\n      <h2 class=\"side-title\">COORDONNEES</h2>\n      <ul class=\"contact-list\">\n        <li>\n          <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\"><path d=\"M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z\"/></svg>\n          <span>{{ $json.Adresse }}<br>{{ $json.Code_Postal }} {{ $json.Ville }}</span>\n        </li>\n        <li>\n          <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\"><path d=\"M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1.1L6.6 10.8z\"/></svg>\n          <span>{{ $json.Telephone }}</span>\n        </li>\n        <li>\n          <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\"><path d=\"M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z\"/></svg>\n          <span>{{ $json.Email }}</span>\n        </li>\n        <li>\n          <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\"><path d=\"M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z\"/></svg>\n          <span>Né le 09/08/95</span>\n        </li>\n      </ul>\n\n      <h2 class=\"side-title\">COMPETENCES</h2>\n      <ul class=\"skills-list\">\n{{ $json['Hard skills'].join('\\n') }}\n      </ul>\n      <hr class=\"side-sep\">\n\n      <ul class=\"soft-list\">\n{{ $json['Soft skills'].join('\\n') }}\n      </ul>\n\n    </aside>\n\n  </div>\n</body>\n</html>",
+              "type": "string"
+            },
+            {
+              "id": "4bf18667-5e28-4305-9d57-e96cb2b413da",
+              "name": "chemin",
+              "value": "={{ $json.chemin }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2352,
+        -1392
+      ],
+      "id": "bae1c337-9201-4bb3-b970-45142a999b8c",
+      "name": "edit html with all elements"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f9079347-b23d-4701-b39a-b51648763973",
+              "name": "chemin",
+              "value": "={{ $json.chemin }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2160,
+        -1216
+      ],
+      "id": "1bd29ca5-b8e8-42c4-a2bc-b3e6d87a6fa0",
+      "name": "chemin"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://pdf-converter:8000/convert",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "filename",
+              "value": "={{ $('edit html with all elements').item.json.chemin.replace('/home/taf/', '') }}CV.html"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        3168,
+        -1392
+      ],
+      "id": "bbb9c931-551f-403a-b9ba-3420a5a92576",
+      "name": "Convert CV to PDF"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2544,
+        -720
+      ],
+      "id": "5d62597f-c0e8-4f8d-8c3f-43c31b94edf5",
+      "name": "chemin + selection des experiances et skills"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2000,
+        0
+      ],
+      "id": "fc0f03dc-0eb4-44ed-8ab8-e1d904307363",
+      "name": "Merge input with lettre"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1056,
+        -32
+      ],
+      "id": "970a7d89-c0af-4021-8b73-10f453ee05b8",
+      "name": "Merge CV with offre"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "10c8dadc-d40b-46d9-b2c3-d802b55c1947",
+              "name": "CV",
+              "value": "={{ $json.CV }}",
+              "type": "string"
+            },
+            {
+              "id": "317a4d5f-dba9-4b17-9ff5-732c67c44795",
+              "name": "job_title",
+              "value": "={{ $json.job_title }}",
+              "type": "string"
+            },
+            {
+              "id": "b3a0b5ec-432c-4b6f-b1c0-accdffb18e6a",
+              "name": "employer_name",
+              "value": "={{ $json.employer_name }}",
+              "type": "string"
+            },
+            {
+              "id": "3c974408-1387-4785-b4f6-799eb154da39",
+              "name": "job_description",
+              "value": "={{ $json.job_description }}",
+              "type": "string"
+            },
+            {
+              "id": "b7bc5bb9-09d0-4fa7-af9a-25480ef8e776",
+              "name": "chemin",
+              "value": "={{ $json.chemin }}",
+              "type": "string"
+            },
+            {
+              "id": "2820eef2-c9c0-4d0b-8343-b037b3e01d7e",
+              "name": "lettre",
+              "value": "=<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Théo Bernardon - Lettre de motivations</title>\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link href=\"https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap\" rel=\"stylesheet\">\n<link rel=\"stylesheet\" href=\"../../CV_HTML/style.css\">\n</head>\n<body>\n  <div class=\"page\">\n    <main class=\"cover-letter\">\n      <header class=\"letter-header\">\n        <div class=\"letter-sender\">\n          <p class=\"letter-name\">{{ $json.Prenom }} {{ $json.Nom }}</p>\n          <address>{{ $json.Adresse }}, {{ $json.Code_Postal }} {{ $json.Ville }}<br>{{ $json.Telephone }}<br><a href=\"mailto:{{ $json.Email }}\">{{ $json.Email }}</a></address>\n        </div>\n        <p class=\"letter-date\">Reims, le {{ $today.setLocale('fr').format('dd MMMM yyyy') }}</p>\n      </header>\n      {{ $if($json.output.adressage, \"\\n<section class=\\\"letter-recipient\\\" aria-label=\\\"Destinataire\\\">\\n        <p>\" + $json.output.adressage.split(\"\\n\").join(\"<br>\") + \"</p>\\n      </section>\\n\", \"\") }}\n      <section class=\"letter-content\">\n        <p class=\"letter-subject\"><strong>Objet</strong> Candidature au poste: {{ $json.job_title }}</p>\n\n        <p>{{ $json.output.corps.split(\"\\n\").join(\"</p>\\n\\n        <p>\") }}</p>\n      </section>\n\n      <footer class=\"letter-signature\">\n        <p>Théo Bernardon</p>\n      </footer>\n    </main>\n  </div>\n</body>\n</html>",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2064,
+        -176
+      ],
+      "id": "dc99ac06-b2f3-4ba1-a3f0-75a847583da0",
+      "name": "Edit lettre in html"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "lettre",
+        "options": {
+          "encoding": "utf8",
+          "fileName": "Lettre de motivations.html"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2240,
+        -176
+      ],
+      "id": "fa3de3d0-fe50-4b47-84dc-a83ce7256e01",
+      "name": "lettre to html file"
+    },
+    {
+      "parameters": {
+        "executeOnce": false,
+        "command": "=mkdir -p \"{{ $json.chemin }}\""
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        2560,
+        -1568
+      ],
+      "id": "e2009b19-4da1-45a0-8a62-4f476487e7f7",
+      "name": "Create folder if not exist (cv)",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "executeOnce": false,
+        "command": "=mkdir -p \"{{ $('Edit lettre in html').item.json.chemin }}\""
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        2384,
+        -304
+      ],
+      "id": "cd3a88ac-29e5-4672-87c2-6fbfc780aea2",
+      "name": "Create folder if not exist (lettre)",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2528,
+        -176
+      ],
+      "id": "fb9b4255-16d8-4eab-82ee-424615244db3",
+      "name": "Aiguillage -> 2 (lettre)"
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2768,
+        -1392
+      ],
+      "id": "b8e3298c-f99a-4066-ac9e-ac1706d45dcb",
+      "name": "Aiguillage -> 2 (cv)"
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $('Edit lettre in html').item.json.chemin }}Lettre de motivations.html",
+        "options": {
+          "append": false
+        }
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1.1,
+      "position": [
+        2704,
+        -176
+      ],
+      "id": "d89d8aed-f07c-421b-89ca-78cca1384c4c",
+      "name": "Write Lettre de motivation html"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://pdf-converter:8000/convert",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "filename",
+              "value": "={{ $('Edit lettre in html').item.json.chemin.replace('/home/taf/', '') }}Lettre de motivations.html"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2880,
+        -176
+      ],
+      "id": "fa3f1163-4b09-4f4a-acbb-f33d7fc83d8f",
+      "name": "Convert lettre to PDF"
+    },
+    {
+      "parameters": {
+        "executeOnce": false,
+        "command": "=mkdir -p \"{{ $('set link file').item.json.chemin }}\""
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        2016,
+        624
+      ],
+      "id": "c2b4c020-0c72-467a-94d3-fac8e87a12a5",
+      "name": "Create folder if not exist (url)",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2160,
+        736
+      ],
+      "id": "663680d1-8a82-42bc-b57a-d9ce8b23acd9",
+      "name": "Aiguillage -> 2 (url)"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        992,
+        -1520
+      ],
+      "id": "2bd7310b-0c6b-457c-991b-a02dcde75215",
+      "name": "only one signal"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "3716af3a-f18c-47c0-9240-0971ad054c1f",
+              "leftValue": "={{ $json.postes }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "e22a1bd6-5915-4471-9132-4cc38812d597",
+              "leftValue": "={{ $json['Expériences'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        2160,
+        -1392
+      ],
+      "id": "46ea4b9f-c380-41c0-9819-81727d230b0e",
+      "name": "Filter les poste qui ne match pas"
+    },
+    {
+      "parameters": {
+        "model": "codestral-latest",
+        "options": {
+          "temperature": 0.4,
+          "maxRetries": 1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "typeVersion": 1,
+      "position": [
+        1472,
+        240
+      ],
+      "id": "6983b6e4-3310-4454-8b64-e280f16c3bfe",
+      "name": "Mistral Cloud Chat Model1",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "ZXTVe4ay38Hx5ARA",
+          "name": "Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "codestral-latest",
+        "options": {
+          "temperature": 0.2,
+          "maxRetries": 1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "typeVersion": 1,
+      "position": [
+        1216,
+        -800
+      ],
+      "id": "1a3bd0af-6e23-4700-a925-671702feb1d0",
+      "name": "Mistral Cloud Chat Model",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "ZXTVe4ay38Hx5ARA",
+          "name": "Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "ministral-8b-latest",
+        "options": {
+          "temperature": 0.4
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "typeVersion": 1,
+      "position": [
+        1632,
+        240
+      ],
+      "id": "a881d794-7a63-4079-9b0a-4064b6e4cbd5",
+      "name": "Mistral Cloud Chat Model3",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "ZXTVe4ay38Hx5ARA",
+          "name": "Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "ministral-8b-latest",
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "typeVersion": 1,
+      "position": [
+        1376,
+        -800
+      ],
+      "id": "e1d3326c-3e53-444c-b475-40aa6af64e4e",
+      "name": "Mistral Cloud Chat Model5",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "ZXTVe4ay38Hx5ARA",
+          "name": "Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "Infos CV",
+          "mode": "name"
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        1648,
+        -224
+      ],
+      "id": "250252ef-9aa1-4bf7-879b-8467bcc3f509",
+      "name": "Infos CV1"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1488,
+        -224
+      ],
+      "id": "40c6dcfc-5cf0-49be-886b-70edc7278a9b",
+      "name": "only one signal1"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1888,
+        -176
+      ],
+      "id": "23d0f5fa-e2bc-408c-bf36-697ac67d0368",
+      "name": "Merge"
+    }
+  ],
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "edit chemin",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Return input",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "to .url": {
+      "main": [
+        [
+          {
+            "node": "Create folder if not exist (url)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Aiguillage -> 2 (url)",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "set link file": {
+      "main": [
+        [
+          {
+            "node": "to .url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write racourci postuler": {
+      "main": [
+        [
+          {
+            "node": "Return input",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "only one signal1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge input with lettre",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Merge input with lettre",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "keep job synthèse": {
+      "main": [
+        [
+          {
+            "node": "Merge CV with offre",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Call Full CV texte Editor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Full CV texte Editor": {
+      "main": [
+        [
+          {
+            "node": "Merge CV with offre",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "keep job synthèse1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "only one signal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "infos CV + Diplomes + experiances + skills",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "chemin",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get expériances rows": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Call édit cv field form listes itemes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get skills rows": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Aiguillage -> 2 (cv)",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Write Html CV": {
+      "main": [
+        [
+          {
+            "node": "Convert CV to PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "edit chemin": {
+      "main": [
+        [
+          {
+            "node": "set link file",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "keep job synthèse",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "keep job synthèse1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get posts rows": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call édit cv field form listes itemes": {
+      "main": [
+        [
+          {
+            "node": "chemin + selection des experiances et skills",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Infos CV": {
+      "main": [
+        [
+          {
+            "node": "infos CV + Diplomes",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Formations": {
+      "main": [
+        [
+          {
+            "node": "To formation block html",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "To formation block html": {
+      "main": [
+        [
+          {
+            "node": "Formations in \"Diplomes\" column",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formations in \"Diplomes\" column": {
+      "main": [
+        [
+          {
+            "node": "infos CV + Diplomes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos CV + Diplomes": {
+      "main": [
+        [
+          {
+            "node": "infos CV + Diplomes + experiances + skills",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "infos CV + Diplomes + experiances + skills": {
+      "main": [
+        [
+          {
+            "node": "Filter les poste qui ne match pas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "edit html with all elements": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Create folder if not exist (cv)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chemin": {
+      "main": [
+        [
+          {
+            "node": "chemin + selection des experiances et skills",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert CV to PDF": {
+      "main": [
+        [
+          {
+            "node": "Return input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chemin + selection des experiances et skills": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge input with lettre": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge CV with offre": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit lettre in html": {
+      "main": [
+        [
+          {
+            "node": "lettre to html file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lettre to html file": {
+      "main": [
+        [
+          {
+            "node": "Create folder if not exist (lettre)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Aiguillage -> 2 (lettre)",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Create folder if not exist (cv)": {
+      "main": [
+        [
+          {
+            "node": "Aiguillage -> 2 (cv)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create folder if not exist (lettre)": {
+      "main": [
+        [
+          {
+            "node": "Aiguillage -> 2 (lettre)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aiguillage -> 2 (lettre)": {
+      "main": [
+        [
+          {
+            "node": "Write Lettre de motivation html",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aiguillage -> 2 (cv)": {
+      "main": [
+        [
+          {
+            "node": "Write Html CV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write Lettre de motivation html": {
+      "main": [
+        [
+          {
+            "node": "Convert lettre to PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert lettre to PDF": {
+      "main": [
+        [
+          {
+            "node": "Return input",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Create folder if not exist (url)": {
+      "main": [
+        [
+          {
+            "node": "Aiguillage -> 2 (url)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aiguillage -> 2 (url)": {
+      "main": [
+        [
+          {
+            "node": "Write racourci postuler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "only one signal": {
+      "main": [
+        [
+          {
+            "node": "Infos CV",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Formations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter les poste qui ne match pas": {
+      "main": [
+        [
+          {
+            "node": "edit html with all elements",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral Cloud Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral Cloud Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral Cloud Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Mistral Cloud Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "only one signal1": {
+      "main": [
+        [
+          {
+            "node": "Infos CV1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Infos CV1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Edit lettre in html",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "nodeGroups": [
+    {
+      "id": "78347b2b-59b1-4b80-b618-85b31458d18e",
+      "name": "Édition du lien",
+      "nodeIds": [
+        "80458934-67f4-4da4-8c51-c9dd1abac52f",
+        "167f830b-fb87-4314-ad3d-0e755a86e1a4",
+        "e98c8452-0116-4fa3-9784-d0fed1b5d79d",
+        "c2b4c020-0c72-467a-94d3-fac8e87a12a5",
+        "663680d1-8a82-42bc-b57a-d9ce8b23acd9"
+      ]
+    },
+    {
+      "id": "d669ee5a-222c-4f74-a72e-c23e2a8c5325",
+      "name": "Générer le CV en HTML puis convet PDF",
+      "nodeIds": [
+        "7bba964a-eac8-45f4-a72d-ee397e655726",
+        "67903682-2614-4f76-bd7b-99da76b138ec",
+        "345c139a-1887-42c5-b2c7-fa90e06db414",
+        "1a3bd0af-6e23-4700-a925-671702feb1d0",
+        "5b7510d5-ba50-49bb-bf6b-fa0ce5674f23",
+        "d8ac465f-0888-4074-b348-82b0ba833f5b",
+        "2433f758-020a-4e0f-922c-c128046acf2a",
+        "5d62597f-c0e8-4f8d-8c3f-43c31b94edf5",
+        "bae1c337-9201-4bb3-b970-45142a999b8c",
+        "1bd29ca5-b8e8-42c4-a2bc-b3e6d87a6fa0",
+        "989312e5-5e44-4239-aa25-329f50710f23",
+        "e2009b19-4da1-45a0-8a62-4f476487e7f7",
+        "b8e3298c-f99a-4066-ac9e-ac1706d45dcb",
+        "c0c8bd31-670b-470c-8328-1406fba87a6a",
+        "bbb9c931-551f-403a-b9ba-3420a5a92576",
+        "e8581f32-7c37-4940-9973-17fb3b1fdff0",
+        "f6dcbdd5-ff14-453f-b1a5-cf2038b39496",
+        "a3d99885-040e-453e-b87e-53997759fdd1",
+        "c8d428f8-fd58-40ca-984d-ebc3c1179ccd",
+        "d2360014-9495-4669-aa1e-86cab96945f4",
+        "80f57908-732d-4c60-9ab0-822aa570f95a",
+        "27225a4e-7f05-4cff-8ef7-1ca7d734d0d9",
+        "111be72e-3cd7-4de0-b56f-7e9991f6b79d",
+        "a36680d8-076b-4644-a45a-4a42916f6839",
+        "2bd7310b-0c6b-457c-991b-a02dcde75215",
+        "46ea4b9f-c380-41c0-9819-81727d230b0e",
+        "e1d3326c-3e53-444c-b475-40aa6af64e4e"
+      ]
+    },
+    {
+      "id": "682d7db2-a26d-492b-965b-01203f687a66",
+      "name": "Générer l'aide de motivation puis convert tout PDF",
+      "nodeIds": [
+        "0c6cdb97-62fe-463d-86dc-fbd39acb17a9",
+        "6fc2e23b-fb97-4686-bb1c-259b89c6cfde",
+        "b7b13fb9-6e8c-488f-81f8-c767d32891e3",
+        "7bec5649-ca5f-4ff0-80b5-e560d62a9abe",
+        "02bec597-69b9-476f-8fe6-0811ee76720f",
+        "f487a1ec-e215-4214-9a34-f5c9e3e73cc2",
+        "fc0f03dc-0eb4-44ed-8ab8-e1d904307363",
+        "970a7d89-c0af-4021-8b73-10f453ee05b8",
+        "dc99ac06-b2f3-4ba1-a3f0-75a847583da0",
+        "fa3de3d0-fe50-4b47-84dc-a83ce7256e01",
+        "cd3a88ac-29e5-4672-87c2-6fbfc780aea2",
+        "fb9b4255-16d8-4eab-82ee-424615244db3",
+        "d89d8aed-f07c-421b-89ca-78cca1384c4c",
+        "fa3f1163-4b09-4f4a-acbb-f33d7fc83d8f",
+        "6983b6e4-3310-4454-8b64-e280f16c3bfe",
+        "a881d794-7a63-4079-9b0a-4064b6e4cbd5",
+        "250252ef-9aa1-4bf7-879b-8467bcc3f509",
+        "40c6dcfc-5cf0-49be-886b-70edc7278a9b",
+        "23d0f5fa-e2bc-408c-bf36-697ac67d0368"
+      ]
+    }
+  ],
+  "pinData": {},
+  "versionId": "43b95476-8b7c-42ce-8735-e7add9f22b58",
+  "activeVersionId": null,
+  "versionCounter": 3091,
+  "triggerCount": 0,
+  "sourceWorkflowId": null,
+  "tags": [
+    {
+      "updatedAt": "2026-07-28T08:14:52.339Z",
+      "createdAt": "2026-07-28T08:14:52.339Z",
+      "id": "BpwFRsH19RbEljdE",
+      "name": "job-finder"
+    },
+    {
+      "updatedAt": "2026-07-28T08:14:08.909Z",
+      "createdAt": "2026-07-28T08:14:08.909Z",
+      "id": "CyLhmiazBAgTCs5y",
+      "name": "sub-workflow"
+    },
+    {
+      "updatedAt": "2026-08-03T07:46:57.031Z",
+      "createdAt": "2026-08-03T07:46:57.031Z",
+      "id": "IhXNyg3oQ097zxem",
+      "name": "IA-agent"
+    }
+  ],
+  "shared": [
+    {
+      "updatedAt": "2026-09-03T20:56:56.736Z",
+      "createdAt": "2026-09-03T20:56:56.736Z",
+      "role": "workflow:owner",
+      "workflowId": "JivNpCgAEBoKFBYZ",
+      "projectId": "XjJjYNQ7vT8Pd6Tx",
+      "project": {
+        "updatedAt": "2026-09-03T20:57:23.685Z",
+        "createdAt": "2026-09-03T20:56:54.423Z",
+        "id": "XjJjYNQ7vT8Pd6Tx",
+        "name": "Théo Bernardon <bernardon.job@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "customTelemetryTags": [],
+        "creatorId": "c8ea7bb4-e055-4b91-af60-dfd3de0051be"
+      }
+    }
+  ],
+  "versionMetadata": {
+    "name": null,
+    "description": null
+  }
+}

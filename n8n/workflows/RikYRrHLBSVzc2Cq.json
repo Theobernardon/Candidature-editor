@@ -1,0 +1,663 @@
+{
+  "updatedAt": "2026-09-04T14:24:59.854Z",
+  "createdAt": "2026-08-04T07:41:05.507Z",
+  "id": "RikYRrHLBSVzc2Cq",
+  "name": "Full CV texte Editor",
+  "description": null,
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "Compétences",
+          "mode": "name"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "is_soft",
+              "keyValue": "true"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -736,
+        -1024
+      ],
+      "id": "aad73a2e-d4b8-481a-86ca-ccacfe8732e8",
+      "name": "Get Soft skills"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "Compétences",
+          "mode": "name"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "is_hard",
+              "keyValue": "true"
+            }
+          ]
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -736,
+        -1328
+      ],
+      "id": "109234be-553c-4de1-8570-ddb85bbae5bf",
+      "name": "Get Hard skills"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "Experiance professionnelle",
+          "mode": "name"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -736,
+        -1488
+      ],
+      "id": "7e13f6c5-80d5-439b-b60e-bfcd6d298104",
+      "name": "Get expériances"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -1072,
+        -1168
+      ],
+      "id": "4fbec28f-32c4-4c37-9e07-5530b615ed54",
+      "name": "No data / keep input signal only"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "id": "0d1a2a1d-9e0b-48ff-9386-a220dd75a87a",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        -1280,
+        -1168
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "19efa1db-24c9-43a7-b1c1-f2b408ca4f93",
+              "name": "experiances",
+              "value": "={{ $json.Job }}\n{{ $json.Entreprise }}, {{ $json.debut.toDateTime().format('MMM yyyy')}} - {{ $json.fin.toDateTime().format('MMM yyyy')}}\n{{ $json.describe }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -528,
+        -1488
+      ],
+      "id": "7563be29-bea2-42ce-b518-9054542f248b",
+      "name": "Edit expériances"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "experiances"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        -1488
+      ],
+      "id": "927e1a81-194a-4440-af1a-cd9160ab95c9",
+      "name": "Aggregate expériances"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "01dd6428-69c9-4e60-917d-5698b44f3c35",
+              "name": "hard skills",
+              "value": "={{ $json.skill }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -528,
+        -1328
+      ],
+      "id": "7e7caefb-888a-46d7-9eba-5073cb3c54e3",
+      "name": "Edit Hard skills"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "hard skills"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        -1328
+      ],
+      "id": "74dd2f36-109e-49a5-bd6c-deec7e45cf90",
+      "name": "Aggregate Hard skills"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "17cd286e-46c7-40bf-bc6a-d7127ecd34c8",
+              "name": "soft skills",
+              "value": "={{ $json.skill }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -528,
+        -1024
+      ],
+      "id": "7bac4e52-e6d2-4441-a1a1-046bf7675294",
+      "name": "Edit Soft skills"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "soft skills"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        -1024
+      ],
+      "id": "ae5d55bf-b829-4ec0-875e-2544a273aa54",
+      "name": "Aggregate Soft skills"
+    },
+    {
+      "parameters": {
+        "mode": "combineBySql",
+        "numberInputs": 5,
+        "query": "SELECT * FROM input1 \n  LEFT JOIN input2 ON input1.id = input2.id\n  LEFT JOIN input3 ON input1.id = input3.id\n  LEFT JOIN input4 ON input1.id = input4.id\n  LEFT JOIN input5 ON input1.id = input5.id",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -16,
+        -1216
+      ],
+      "id": "e485d8b4-894a-4297-bc20-7f6adbfb6142",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2a55aa24-7f3a-4e85-977d-05e51ece783e",
+              "name": "CV",
+              "value": "={{ $json.Prenom }}\n{{ $json.Nom }}\n\nSYNTHÈSE PROFESSIONNELLE\n{{ $json.Resume }}\n\n\nEXPERIENCE PROFESSIONNELLE\n{{ $json.experiances.join('\\n\\n') }}\n\nFORMATION\n{{ $json.Formations.join('\\n\\n') }}\n\nCOMPETENCES\nhard:\n{{ $json['hard skills'].join(', ') }}\nsoft:\n{{ $json['soft skills'].join(', ') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        208,
+        -1168
+      ],
+      "id": "97f29065-7748-4f15-bfbe-3d38bb657c66",
+      "name": "Edit CV text"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "Infos CV",
+          "mode": "name"
+        },
+        "filters": {
+          "conditions": []
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -736,
+        -864
+      ],
+      "id": "95a09bab-9260-40af-8515-b7b9912c512d",
+      "name": "Get Infos CV"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "69deaeaa-ef3d-48c8-a7d9-f41e76c891e4",
+              "name": "Prenom",
+              "value": "={{ $json.Prenom }}",
+              "type": "string"
+            },
+            {
+              "id": "7c53aefa-0d29-4277-97c4-e88ab30bcb07",
+              "name": "Nom",
+              "value": "={{ $json.Nom }}",
+              "type": "string"
+            },
+            {
+              "id": "b5bde11d-f5a1-4499-8a96-e9673e947c47",
+              "name": "Resume",
+              "value": "={{ $json.Resume.split(/<.?.>|  /).join(\"\") }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -320,
+        -864
+      ],
+      "id": "e54eb9b8-16ef-4ec2-a434-c672d785843f",
+      "name": "Edit Infos CV"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "Formations",
+          "mode": "name"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -736,
+        -1168
+      ],
+      "id": "8b2191e5-80ab-4458-b6fa-84277946c61f",
+      "name": "Get Formations"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "19efa1db-24c9-43a7-b1c1-f2b408ca4f93",
+              "name": "Formations",
+              "value": "={{ $json.Diplome }} • {{ $json.Etablissement }} • {{ $json.Annee }}\n{{ $json.description }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -528,
+        -1168
+      ],
+      "id": "13a35566-457a-4595-84d3-042f29d85e4b",
+      "name": "Edit Formations"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Formations"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        -1168
+      ],
+      "id": "5616e6a8-25cf-4041-a4bf-502e0c85da22",
+      "name": "Aggregate Formations"
+    }
+  ],
+  "connections": {
+    "Get Soft skills": {
+      "main": [
+        [
+          {
+            "node": "Edit Soft skills",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Hard skills": {
+      "main": [
+        [
+          {
+            "node": "Edit Hard skills",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get expériances": {
+      "main": [
+        [
+          {
+            "node": "Edit expériances",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No data / keep input signal only": {
+      "main": [
+        [
+          {
+            "node": "Get Soft skills",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Hard skills",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get expériances",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Infos CV",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Formations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "No data / keep input signal only",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit expériances": {
+      "main": [
+        [
+          {
+            "node": "Aggregate expériances",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate expériances": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Hard skills": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Hard skills",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Hard skills": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Edit Soft skills": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Soft skills",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Soft skills": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Edit CV text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Infos CV": {
+      "main": [
+        [
+          {
+            "node": "Edit Infos CV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Infos CV": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "Get Formations": {
+      "main": [
+        [
+          {
+            "node": "Edit Formations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Formations": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Formations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Formations": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": null,
+  "nodeGroups": [],
+  "pinData": {},
+  "versionId": "3b5b865c-7709-4797-b459-74254758ac12",
+  "activeVersionId": "3b5b865c-7709-4797-b459-74254758ac12",
+  "versionCounter": 146,
+  "triggerCount": 0,
+  "sourceWorkflowId": null,
+  "tags": [
+    {
+      "updatedAt": "2026-07-28T08:14:52.339Z",
+      "createdAt": "2026-07-28T08:14:52.339Z",
+      "id": "BpwFRsH19RbEljdE",
+      "name": "job-finder"
+    },
+    {
+      "updatedAt": "2026-07-28T08:14:08.909Z",
+      "createdAt": "2026-07-28T08:14:08.909Z",
+      "id": "CyLhmiazBAgTCs5y",
+      "name": "sub-workflow"
+    }
+  ],
+  "shared": [
+    {
+      "updatedAt": "2026-09-03T20:56:56.753Z",
+      "createdAt": "2026-09-03T20:56:56.753Z",
+      "role": "workflow:owner",
+      "workflowId": "RikYRrHLBSVzc2Cq",
+      "projectId": "XjJjYNQ7vT8Pd6Tx",
+      "project": {
+        "updatedAt": "2026-09-03T20:57:23.685Z",
+        "createdAt": "2026-09-03T20:56:54.423Z",
+        "id": "XjJjYNQ7vT8Pd6Tx",
+        "name": "Théo Bernardon <bernardon.job@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "customTelemetryTags": [],
+        "creatorId": "c8ea7bb4-e055-4b91-af60-dfd3de0051be"
+      }
+    }
+  ],
+  "versionMetadata": {
+    "name": "Version 3b5b865c",
+    "description": ""
+  }
+}

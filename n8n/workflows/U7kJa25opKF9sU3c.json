@@ -1,0 +1,155 @@
+{
+  "updatedAt": "2026-09-04T14:18:58.821Z",
+  "createdAt": "2026-08-05T13:23:49.166Z",
+  "id": "U7kJa25opKF9sU3c",
+  "name": "Get posts rows",
+  "description": null,
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "Get table",
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7795a8e3-7b0f-42ff-b626-bd0bfbf50082",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "mode": "name",
+          "value": "Intitulées de postes"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "064a3d3c-bca9-4c55-961c-7a8659b5b9c2",
+      "name": "Get Intitulées de postes"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7f1e0178-7472-4939-8e50-03db69d0ab8a",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "9bc170cd-b284-4814-b2b5-2452a24f714c",
+              "name": "postes",
+              "value": "={{ $json.postes }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "523401f8-53b8-4edc-9399-80ed99dc7652",
+      "name": "select infos"
+    }
+  ],
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Get Intitulées de postes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Intitulées de postes": {
+      "main": [
+        [
+          {
+            "node": "select infos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": null,
+  "nodeGroups": [],
+  "pinData": {},
+  "versionId": "963a08f8-2792-4585-8398-1bdc0ed215b3",
+  "activeVersionId": "963a08f8-2792-4585-8398-1bdc0ed215b3",
+  "versionCounter": 14,
+  "triggerCount": 0,
+  "sourceWorkflowId": null,
+  "tags": [
+    {
+      "updatedAt": "2026-07-28T08:14:52.339Z",
+      "createdAt": "2026-07-28T08:14:52.339Z",
+      "id": "BpwFRsH19RbEljdE",
+      "name": "job-finder"
+    },
+    {
+      "updatedAt": "2026-07-28T08:14:08.909Z",
+      "createdAt": "2026-07-28T08:14:08.909Z",
+      "id": "CyLhmiazBAgTCs5y",
+      "name": "sub-workflow"
+    }
+  ],
+  "shared": [
+    {
+      "updatedAt": "2026-09-03T20:56:56.759Z",
+      "createdAt": "2026-09-03T20:56:56.759Z",
+      "role": "workflow:owner",
+      "workflowId": "U7kJa25opKF9sU3c",
+      "projectId": "XjJjYNQ7vT8Pd6Tx",
+      "project": {
+        "updatedAt": "2026-09-03T20:57:23.685Z",
+        "createdAt": "2026-09-03T20:56:54.423Z",
+        "id": "XjJjYNQ7vT8Pd6Tx",
+        "name": "Théo Bernardon <bernardon.job@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "customTelemetryTags": [],
+        "creatorId": "c8ea7bb4-e055-4b91-af60-dfd3de0051be"
+      }
+    }
+  ],
+  "versionMetadata": {
+    "name": "Version 963a08f8",
+    "description": ""
+  }
+}

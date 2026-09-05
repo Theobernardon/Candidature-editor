@@ -1,0 +1,838 @@
+{
+  "updatedAt": "2026-09-05T08:42:45.041Z",
+  "createdAt": "2026-07-27T12:41:50.109Z",
+  "id": "JCzdn9cCAlpN0od6",
+  "name": "Job Research",
+  "description": null,
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 12
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -272,
+        -720
+      ],
+      "id": "8301a300-c47c-4de9-a76e-581988cca24a",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "compare": "selectedFields",
+        "fieldsToCompare": "job_uid",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 2,
+      "position": [
+        768,
+        -784
+      ],
+      "id": "ea61219f-e062-49ac-bc03-e26352d6bd32",
+      "name": "Dédoublonner la liste"
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "memory_jobs",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "job_title": "={{ $json.job_title }}",
+            "employer_name": "={{ $json.employer_name }}",
+            "job_publisher": "={{ $json.job_publisher }}",
+            "job_employment_type": "={{ $json.job_employment_type }}",
+            "job_apply_link": "={{ $json.job_apply_link }}",
+            "job_description": "={{ $json.job_description }}",
+            "job_is_remote": "={{ $json.job_is_remote }}",
+            "job_location": "={{ $json.job_location }}",
+            "job_city": "={{ $json.job_city }}",
+            "job_latitude": "={{ $json.job_latitude }}",
+            "job_longitude": "={{ $json.job_longitude }}",
+            "job_uid": "={{ $json.job_uid }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "job_id",
+              "displayName": "job_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "job_title",
+              "displayName": "job_title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "employer_name",
+              "displayName": "employer_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "employer_website",
+              "displayName": "employer_website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "job_publisher",
+              "displayName": "job_publisher",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "job_employment_type",
+              "displayName": "job_employment_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "job_apply_link",
+              "displayName": "job_apply_link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "job_description",
+              "displayName": "job_description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "job_is_remote",
+              "displayName": "job_is_remote",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "job_location",
+              "displayName": "job_location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "job_city",
+              "displayName": "job_city",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "job_latitude",
+              "displayName": "job_latitude",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "job_longitude",
+              "displayName": "job_longitude",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "job_uid",
+              "displayName": "job_uid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        1392,
+        -784
+      ],
+      "id": "ffcc48b6-7a99-4931-8e6d-96a3d20bab6f",
+      "name": "Insert row"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "JivNpCgAEBoKFBYZ",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/JivNpCgAEBoKFBYZ",
+          "cachedResultName": "Générer lettre et lien"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "job_apply_is_direct": "={{ $json.job_apply_is_direct }}",
+            "job_is_remote": "={{ $json.job_is_remote }}",
+            "job_latitude": "={{ $json.job_latitude }}",
+            "job_longitude": "={{ $json.job_longitude }}",
+            "job_id": "={{ $json.job_id }}",
+            "job_title": "={{ $json.job_title }}",
+            "employer_name": "={{ $json.employer_name }}",
+            "employer_website": "={{ $json.employer_website }}",
+            "job_publisher": "={{ $json.job_publisher }}",
+            "job_employment_type": "={{ $json.job_employment_type }}",
+            "job_apply_link": "={{ $json.job_apply_link }}",
+            "job_description": "={{ $json.job_description }}",
+            "job_location": "={{ $json.job_location }}",
+            "job_city": "={{ $json.job_city }}",
+            "job_country": "={{ $json.job_country }}",
+            "job_uid": "={{ $json.job_uid }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "job_id",
+              "displayName": "job_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "job_title",
+              "displayName": "job_title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "employer_name",
+              "displayName": "employer_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "employer_website",
+              "displayName": "employer_website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "job_publisher",
+              "displayName": "job_publisher",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "job_employment_type",
+              "displayName": "job_employment_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "job_apply_link",
+              "displayName": "job_apply_link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "job_apply_is_direct",
+              "displayName": "job_apply_is_direct",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "boolean",
+              "removed": false
+            },
+            {
+              "id": "job_description",
+              "displayName": "job_description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "job_is_remote",
+              "displayName": "job_is_remote",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "boolean",
+              "removed": false
+            },
+            {
+              "id": "job_location",
+              "displayName": "job_location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "job_city",
+              "displayName": "job_city",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "job_country",
+              "displayName": "job_country",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "job_latitude",
+              "displayName": "job_latitude",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "job_longitude",
+              "displayName": "job_longitude",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "job_uid",
+              "displayName": "job_uid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        1184,
+        -784
+      ],
+      "id": "200091bc-9b36-4329-aa81-2bbe6314d2df",
+      "name": "Preparation de candidature (call)",
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "operation": "rowNotExists",
+        "dataTableId": {
+          "__rl": true,
+          "value": "memory_jobs",
+          "mode": "name"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "job_uid",
+              "keyValue": "={{ $json.job_uid }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        976,
+        -784
+      ],
+      "id": "7fe2299e-bb97-425b-95f9-8c1eba95ffa2",
+      "name": "If row does not exist"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        112,
+        -720
+      ],
+      "id": "28fe1f2b-560d-4627-afb4-83c97d20d976",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        768,
+        -608
+      ],
+      "id": "9a32cd26-d76b-452a-ba97-c3349b3062ac",
+      "name": "Wait",
+      "webhookId": "ffac1499-608e-4537-94e2-ea47c5312dc9"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        352,
+        -784
+      ],
+      "id": "ca554f4b-63b2-4cb0-a0fb-b49176f5607c",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data.jobs",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        560,
+        -608
+      ],
+      "id": "3b2ad8c0-e90e-4021-aba2-98cf7969b791",
+      "name": "Split jobs",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "url": "https://jsearch.p.rapidapi.com/search-v2?",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "={{ $json.query }}"
+            },
+            {
+              "name": "date_posted",
+              "value": "={{ $json.date_posted }}"
+            },
+            {
+              "name": "country",
+              "value": "={{ $json.country }}"
+            },
+            {
+              "name": "={{ $if($json.location, \"location\", \"\") }}",
+              "value": "={{ $if($json.location, $json.location, \"\") }}"
+            },
+            {
+              "name": "={{ $if($json.radius, \"radius\", \"\") }}",
+              "value": "={{ $if($json.radius, $json.radius, \"\") }}"
+            },
+            {
+              "name": "={{ $if($json.work_from_home, \"work_from_home\", \"\") }}",
+              "value": "={{ $if($json.work_from_home, $json.work_from_home, \"\") }}"
+            },
+            {
+              "name": "={{ $if($json.exclude_job_publishers, \"exclude_job_publishers\", \"\") }}",
+              "value": "={{ $if($json.exclude_job_publishers, $json.exclude_job_publishers, \"\") }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "jsearch.p.rapidapi.com"
+            },
+            {
+              "name": "x-rapidapi-key",
+              "value": "entrer_ta_clef_api_ici"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        352,
+        -608
+      ],
+      "id": "a541d8db-48e4-4ba2-baa6-86feed3d9490",
+      "name": "Request from rows"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "92fbf337-4c95-498d-ada6-47eaf8dfa38a",
+              "leftValue": "={{ $json.job_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        560,
+        -784
+      ],
+      "id": "1af44250-6a6b-4da8-a15d-f11da982dfac",
+      "name": "Suppr les null"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "Postes recherchee",
+          "mode": "name"
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -80,
+        -720
+      ],
+      "id": "d1dafee4-c28b-40d0-80da-8a982511ede9",
+      "name": "Get requests"
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get requests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dédoublonner la liste": {
+      "main": [
+        [
+          {
+            "node": "If row does not exist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparation de candidature (call)": {
+      "main": [
+        [
+          {
+            "node": "Insert row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If row does not exist": {
+      "main": [
+        [
+          {
+            "node": "Preparation de candidature (call)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Request from rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Suppr les null",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split jobs": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request from rows": {
+      "main": [
+        [
+          {
+            "node": "Split jobs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Suppr les null": {
+      "main": [
+        [
+          {
+            "node": "Dédoublonner la liste",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get requests": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": [
+        null
+      ],
+      "recurrenceRuleSignatures": [
+        null
+      ]
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "nodeGroups": [],
+  "pinData": {},
+  "versionId": "631dbc51-7526-43c9-b8a5-5abf61a8a141",
+  "activeVersionId": null,
+  "versionCounter": 879,
+  "triggerCount": 1,
+  "sourceWorkflowId": null,
+  "tags": [
+    {
+      "updatedAt": "2026-07-28T08:14:52.339Z",
+      "createdAt": "2026-07-28T08:14:52.339Z",
+      "id": "BpwFRsH19RbEljdE",
+      "name": "job-finder"
+    },
+    {
+      "updatedAt": "2026-08-03T07:51:42.815Z",
+      "createdAt": "2026-08-03T07:51:42.815Z",
+      "id": "Ndhun0DghIKGWUeb",
+      "name": "job-reserch-request"
+    },
+    {
+      "updatedAt": "2026-08-03T07:45:43.349Z",
+      "createdAt": "2026-08-03T07:45:43.349Z",
+      "id": "qf0A14RWhPglj8Tk",
+      "name": "add-to-table"
+    },
+    {
+      "updatedAt": "2026-09-02T10:44:06.307Z",
+      "createdAt": "2026-09-02T10:44:06.307Z",
+      "id": "y9iYUxNugTKHYNS5",
+      "name": "outil"
+    }
+  ],
+  "shared": [
+    {
+      "updatedAt": "2026-09-03T20:56:56.726Z",
+      "createdAt": "2026-09-03T20:56:56.726Z",
+      "role": "workflow:owner",
+      "workflowId": "JCzdn9cCAlpN0od6",
+      "projectId": "XjJjYNQ7vT8Pd6Tx",
+      "project": {
+        "updatedAt": "2026-09-03T20:57:23.685Z",
+        "createdAt": "2026-09-03T20:56:54.423Z",
+        "id": "XjJjYNQ7vT8Pd6Tx",
+        "name": "Théo Bernardon <bernardon.job@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "customTelemetryTags": [],
+        "creatorId": "c8ea7bb4-e055-4b91-af60-dfd3de0051be"
+      }
+    }
+  ],
+  "versionMetadata": {
+    "name": null,
+    "description": null
+  }
+}

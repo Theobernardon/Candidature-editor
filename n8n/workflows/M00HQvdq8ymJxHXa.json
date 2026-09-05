@@ -1,0 +1,167 @@
+{
+  "updatedAt": "2026-09-04T14:20:51.424Z",
+  "createdAt": "2026-08-04T08:19:04.300Z",
+  "id": "M00HQvdq8ymJxHXa",
+  "name": "Get skills rows",
+  "description": null,
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "Get table",
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "53caa5c9-c4ee-4898-9cb0-c4f080b59834",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "Compétences",
+          "mode": "name"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "4a349dec-78d8-4fc3-8837-0d0eb75661c4",
+      "name": "Get Compétences"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fb68284f-ba81-4494-86a7-c2d1553ae09e",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "abc94b8f-5074-4bc5-9b97-631d103d500b",
+              "name": "skill",
+              "value": "={{ $json.skill }}",
+              "type": "string"
+            },
+            {
+              "id": "8442d8e3-04dd-4176-a06e-d2367192cca0",
+              "name": "is_hard",
+              "value": "={{ $json.is_hard }}",
+              "type": "boolean"
+            },
+            {
+              "id": "949dd481-9c55-426b-91d3-39950f41d085",
+              "name": "is_soft",
+              "value": "={{ $json.is_soft }}",
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "4c5606e9-60f4-4610-938c-78e55f71c29e",
+      "name": "select infos"
+    }
+  ],
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Get Compétences",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Compétences": {
+      "main": [
+        [
+          {
+            "node": "select infos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": null,
+  "nodeGroups": [],
+  "pinData": {},
+  "versionId": "881d6dd6-0a45-466e-a433-681212139197",
+  "activeVersionId": "881d6dd6-0a45-466e-a433-681212139197",
+  "versionCounter": 12,
+  "triggerCount": 0,
+  "sourceWorkflowId": null,
+  "tags": [
+    {
+      "updatedAt": "2026-07-28T08:14:52.339Z",
+      "createdAt": "2026-07-28T08:14:52.339Z",
+      "id": "BpwFRsH19RbEljdE",
+      "name": "job-finder"
+    },
+    {
+      "updatedAt": "2026-07-28T08:14:08.909Z",
+      "createdAt": "2026-07-28T08:14:08.909Z",
+      "id": "CyLhmiazBAgTCs5y",
+      "name": "sub-workflow"
+    }
+  ],
+  "shared": [
+    {
+      "updatedAt": "2026-09-03T20:56:56.743Z",
+      "createdAt": "2026-09-03T20:56:56.743Z",
+      "role": "workflow:owner",
+      "workflowId": "M00HQvdq8ymJxHXa",
+      "projectId": "XjJjYNQ7vT8Pd6Tx",
+      "project": {
+        "updatedAt": "2026-09-03T20:57:23.685Z",
+        "createdAt": "2026-09-03T20:56:54.423Z",
+        "id": "XjJjYNQ7vT8Pd6Tx",
+        "name": "Théo Bernardon <bernardon.job@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "customTelemetryTags": [],
+        "creatorId": "c8ea7bb4-e055-4b91-af60-dfd3de0051be"
+      }
+    }
+  ],
+  "versionMetadata": {
+    "name": "Version 881d6dd6",
+    "description": ""
+  }
+}

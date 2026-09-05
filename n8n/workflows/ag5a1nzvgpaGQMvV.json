@@ -1,0 +1,154 @@
+{
+  "updatedAt": "2026-09-04T14:24:11.788Z",
+  "createdAt": "2026-08-04T08:11:28.441Z",
+  "id": "ag5a1nzvgpaGQMvV",
+  "name": "Get expériances rows",
+  "description": null,
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "Get table",
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "463123ef-ad7f-4f86-8ca7-a41303d8667c",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "Experiance professionnelle",
+          "mode": "name"
+        }
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "05805ce0-9ebf-4329-8cbb-eb853c05dc18",
+      "name": "Experiance professionnelle"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "337b3206-4e13-4801-93c0-3f92d39d9d73",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "4e3f9b0f-29cd-4d7b-91f4-8ac6d61480b0",
+              "name": "Job",
+              "value": "={{ $json.Job }}\n{{ $json.Entreprise }}, {{ $json.debut.toDateTime().format('MMM yyyy')}} - {{ $json.fin.toDateTime().format('MMM yyyy')}}\n{{ $json.describe }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "915c929a-53e5-4feb-9793-6a74cd5ae593",
+      "name": "Edit Fields"
+    }
+  ],
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Experiance professionnelle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Experiance professionnelle": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": null,
+  "nodeGroups": [],
+  "pinData": {},
+  "versionId": "8f26a236-897e-46e6-a9ed-00517ff3d95a",
+  "activeVersionId": "8f26a236-897e-46e6-a9ed-00517ff3d95a",
+  "versionCounter": 22,
+  "triggerCount": 0,
+  "sourceWorkflowId": null,
+  "tags": [
+    {
+      "updatedAt": "2026-07-28T08:14:52.339Z",
+      "createdAt": "2026-07-28T08:14:52.339Z",
+      "id": "BpwFRsH19RbEljdE",
+      "name": "job-finder"
+    },
+    {
+      "updatedAt": "2026-07-28T08:14:08.909Z",
+      "createdAt": "2026-07-28T08:14:08.909Z",
+      "id": "CyLhmiazBAgTCs5y",
+      "name": "sub-workflow"
+    }
+  ],
+  "shared": [
+    {
+      "updatedAt": "2026-09-03T20:56:56.763Z",
+      "createdAt": "2026-09-03T20:56:56.763Z",
+      "role": "workflow:owner",
+      "workflowId": "ag5a1nzvgpaGQMvV",
+      "projectId": "XjJjYNQ7vT8Pd6Tx",
+      "project": {
+        "updatedAt": "2026-09-03T20:57:23.685Z",
+        "createdAt": "2026-09-03T20:56:54.423Z",
+        "id": "XjJjYNQ7vT8Pd6Tx",
+        "name": "Théo Bernardon <bernardon.job@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "customTelemetryTags": [],
+        "creatorId": "c8ea7bb4-e055-4b91-af60-dfd3de0051be"
+      }
+    }
+  ],
+  "versionMetadata": {
+    "name": "Version 8f26a236",
+    "description": ""
+  }
+}

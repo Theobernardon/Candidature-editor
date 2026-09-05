@@ -1,0 +1,335 @@
+{
+  "updatedAt": "2026-08-24T10:00:10.227Z",
+  "createdAt": "2026-08-24T09:29:18.130Z",
+  "id": "O0XvkPntWdIiYNpN",
+  "name": "Job Manual candidate",
+  "description": null,
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "JivNpCgAEBoKFBYZ",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/JivNpCgAEBoKFBYZ",
+          "cachedResultName": "Générer lettre et lien"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "job_title": "={{ $json.job_title }}",
+            "employer_name": "={{ $json.employer_name }}",
+            "job_apply_link": "={{ $json.job_apply_link }}",
+            "job_description": "={{ $json.job_description }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "job_id",
+              "displayName": "job_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "job_title",
+              "displayName": "job_title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "employer_name",
+              "displayName": "employer_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "employer_website",
+              "displayName": "employer_website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "job_publisher",
+              "displayName": "job_publisher",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "job_employment_type",
+              "displayName": "job_employment_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "job_apply_link",
+              "displayName": "job_apply_link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "job_apply_is_direct",
+              "displayName": "job_apply_is_direct",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "boolean",
+              "removed": true
+            },
+            {
+              "id": "job_description",
+              "displayName": "job_description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "job_is_remote",
+              "displayName": "job_is_remote",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "boolean",
+              "removed": true
+            },
+            {
+              "id": "job_location",
+              "displayName": "job_location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "job_city",
+              "displayName": "job_city",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "job_country",
+              "displayName": "job_country",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "job_latitude",
+              "displayName": "job_latitude",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": true
+            },
+            {
+              "id": "job_longitude",
+              "displayName": "job_longitude",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": true
+            },
+            {
+              "id": "job_uid",
+              "displayName": "job_uid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        672,
+        -192
+      ],
+      "id": "db78650a-6bb8-4d3f-9771-f1ccf23a275d",
+      "name": "Preparation de candidature (call)",
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "formTitle": "Candidature Manuel",
+        "formDescription": "Postulez à un job en renseignant les différents champs:",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "employer_name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "job_title",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "job_description",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "job_apply_link",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        448,
+        -192
+      ],
+      "id": "0098824f-1957-48d6-a72e-14c275ae983c",
+      "name": "On form submission",
+      "webhookId": "29f0bd07-b6bf-49ce-9e1c-a10fd639e970"
+    }
+  ],
+  "connections": {
+    "Preparation de candidature (call)": {
+      "main": [
+        []
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Preparation de candidature (call)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": [
+        null
+      ],
+      "recurrenceRuleSignatures": [
+        null
+      ]
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "nodeGroups": [],
+  "pinData": {},
+  "versionId": "4dd7d580-68bd-4dd3-9583-3e40a43f45ff",
+  "activeVersionId": null,
+  "versionCounter": 39,
+  "triggerCount": 1,
+  "sourceWorkflowId": null,
+  "tags": [
+    {
+      "updatedAt": "2026-07-28T08:14:52.339Z",
+      "createdAt": "2026-07-28T08:14:52.339Z",
+      "id": "BpwFRsH19RbEljdE",
+      "name": "job-finder"
+    },
+    {
+      "updatedAt": "2026-08-03T07:51:42.815Z",
+      "createdAt": "2026-08-03T07:51:42.815Z",
+      "id": "Ndhun0DghIKGWUeb",
+      "name": "job-reserch-request"
+    },
+    {
+      "updatedAt": "2026-08-03T07:45:43.349Z",
+      "createdAt": "2026-08-03T07:45:43.349Z",
+      "id": "qf0A14RWhPglj8Tk",
+      "name": "add-to-table"
+    }
+  ],
+  "shared": [
+    {
+      "updatedAt": "2026-09-03T20:56:56.747Z",
+      "createdAt": "2026-09-03T20:56:56.747Z",
+      "role": "workflow:owner",
+      "workflowId": "O0XvkPntWdIiYNpN",
+      "projectId": "XjJjYNQ7vT8Pd6Tx",
+      "project": {
+        "updatedAt": "2026-09-03T20:57:23.685Z",
+        "createdAt": "2026-09-03T20:56:54.423Z",
+        "id": "XjJjYNQ7vT8Pd6Tx",
+        "name": "Théo Bernardon <bernardon.job@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "customTelemetryTags": [],
+        "creatorId": "c8ea7bb4-e055-4b91-af60-dfd3de0051be"
+      }
+    }
+  ],
+  "versionMetadata": {
+    "name": "Version fc6a7131",
+    "description": ""
+  }
+}

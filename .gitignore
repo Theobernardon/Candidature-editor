@@ -1,0 +1,9 @@
+.env
+secrets/
+*.key
+*.pem
+*.code-workspace
+
+# Fichiers HTML/PDF générés localement (CV, lettres de motivation).
+shared_data/*
+!shared_data/CV_HTML/*
