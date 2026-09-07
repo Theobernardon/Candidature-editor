@@ -142,10 +142,28 @@ Pour le convertisseur, indiquez dans le formulaire le chemin du fichier HTML sit
 ## Utilisation courante
 
 1. Renseignez vos informations, expériences, formations et compétences dans les tables n8n prévues à cet effet.
-2. Ajoutez vos critères dans la table **Postes recherchee** et activez **Job Research** pour récupérer des offres automatiquement.
+2. Ajoutez vos critères dans la table **Postes recherchee** (voir détail ci-dessous) et activez **Job Research** pour récupérer des offres automatiquement.
 3. Ouvrez le raccourci **Job Manual candidate** pour traiter une offre précise manuellement.
 4. Retrouvez les documents produits dans `shared_data`, puis utilisez le raccourci **Convert html to pdf** si nécessaire.  
    (Cela peut s'avérer nécessaire si vous voulez modifier Quelque chose sur le fichier HTML, puis reconvertir le PDF)
+
+### Remplissage de la table "Postes recherchee"
+
+La table n8n **Postes recherchee** définit les critères de recherche exécutés automatiquement par le workflow **Job Research** via l'API JSearch. Chaque ligne enregistrée dans la table correspond à une requête d'offres d'emploi.
+
+Voici le guide des colonnes à renseigner :
+
+- **`query`** _(Chaîne de caractères, Obligatoire)_ : Recherche textuelle libre. Il est fortement recommandé d'y inclure l'intitulé du poste et la localisation.  
+  _Exemples :_ `developpeur python a paris`, `web development jobs in chicago`
+- **`date_posted`** _(Obligatoire)_ : Filtre selon la date de publication des offres.  
+  _Valeurs autorisées :_ `all`, `today`, `3days`, `week`, `month`
+- **`country`** _(Obligatoire)_ : Code pays sur 2 lettres au format [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) (ex: `fr` pour la France, `be` pour la Belgique, `us` pour les États-Unis).
+- **`location`** _(Optionnel)_ : Localisation précise à partir de laquelle la recherche est effectuée (paramètre de géolocalisation).  
+  _Exemple :_ `Paris, France`
+- **`radius`** _(Optionnel, Nombre)_ : Rayon de recherche autour de la localisation (exprimé en km).
+- **`exclude_job_publishers`** _(Optionnel)_ : Liste d'éditeurs ou de plateformes d'emploi à exclure de la recherche, séparés par des virgules.  
+  _Exemple :_ `BeeBe,Dice`
+- **`work_from_home`** _(Optionnel, Booléen)_ : Indiquez `true` pour ne conserver que les offres en télétravail/distanciel (`null` par défaut).
 
 ## Dépannage
 
